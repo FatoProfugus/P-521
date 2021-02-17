@@ -35,6 +35,10 @@ def main():
 	n = 457351 #ephemeral
 	private = 1537540
 
+	(B_x, B_y) = pointMult(P_x,P_y,private,a,p)
+	print('B_x =', B_x)
+	print('B_y =', B_y)
+
 	(R_x, R_y) = pointMult(P_x,P_y,n,a,p)
 	print('R_x =,', R_x)
 	print('R_y =,', R_y)
@@ -54,8 +58,8 @@ def main():
 	u1 = (w*x)%q
 	u2 = (w*r)%q
 	(u1P_x, u1P_y) = pointMult(P_x,P_y,u1,a,p)
-	(u2R_x, u2R_y) = pointMult(R_x,R_y,u2,a,p)
-	(V_x, V_y) = pointAdd(u1P_x, u1P_y, u2R_x, u2R_y, p)
+	(u2B_x, u2B_y) = pointMult(B_x,B_y,u2,a,p)
+	(V_x, V_y) = pointAdd(u1P_x, u1P_y, u2B_x, u2B_y, p)
 	v = V_x
 	print('w =', w)
 	print('u1 =', u1)
