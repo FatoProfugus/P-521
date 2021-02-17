@@ -3,7 +3,7 @@ import random
 from sympy import isprime
 
 def pointAdd(x1, y1, x2, y2, p):
-	s = ((y2-y1)*pow((x2-x1),- 1, p)) % p
+	s = ((y2-y1)*pow((x2-x1),-1, p)) % p
 	x3 = (s**2 - x1 - x2) % p
 	y3 = (s*(x1 - x3) - y1) % p
 	return (x3, y3)
@@ -20,7 +20,7 @@ def pointMult(x1, y1, n, a, p):
 	d = list(f'{n:b}')
 	for i in range(1, len(d)):
 		(x, y) = pointDouble(x,y,a,p)
-		if d[i] == 1:
+		if d[i] == '1':
 			(x, y) = pointAdd(x,y,x1,y1,p)
 	return (x, y)
 
